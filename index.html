@@ -15,6 +15,8 @@ button{font-family:var(--fonte)}
 button:focus-visible{outline:2px solid #c9121d;outline-offset:3px}
 
 .app{position:relative;width:min(100vw,480px);height:100dvh;margin:0 auto;overflow:hidden;background:#000;container-type:size}
+/* tela cheia em tablets em pé: o convite ocupa a largura toda em vez de uma coluna de celular (no PC mantém a coluna) */
+@media (max-aspect-ratio:4/5) and (min-width:481px){.app{width:100vw}}
 
 .tela{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility 0s linear .7s}
 .tela.ativa{opacity:1;visibility:visible;transition:opacity .9s ease .6s,visibility 0s}
@@ -136,7 +138,7 @@ button:focus-visible{outline:2px solid #c9121d;outline-offset:3px}
 .flash.on{animation:flash .35s ease-out}
 @keyframes flash{0%{opacity:.9}100%{opacity:0}}
 .sticker-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden}
-.sticker-wrap img{width:98%;max-width:480px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.7));transform:translateX(var(--fromx)) scale(2.2) rotate(var(--rot));opacity:0}
+.sticker-wrap img{width:min(98%,62cqh);max-width:480px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.7));transform:translateX(var(--fromx)) scale(2.2) rotate(var(--rot));opacity:0}
 .sticker-wrap img.bate{animation:pula .42s cubic-bezier(.15,.9,.2,1) forwards}
 @keyframes pula{0%{opacity:0;transform:translateX(var(--fromx)) scale(2.2) rotate(var(--rot))}45%{opacity:1;transform:translateX(4%) scale(1.55) rotate(0deg)}65%{transform:translateX(-2%) scale(1.32)}100%{opacity:1;transform:translateX(0) scale(1.4) rotate(0deg)}}
 .gritou.on{animation:tremeSusto .35s ease-in-out}
